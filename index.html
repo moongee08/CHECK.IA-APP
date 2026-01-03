@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Check.ia App (Estilo Web)</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+
+<body data-theme="light" data-font-size="medium">
+    <div class="mobile-container">
+
+        <section id="login-screen" class="screen active">
+            <div class="status-bar"><span>20:00</span>
+                <div class="status-icons" aria-hidden="true"><i class="ph ph-cell-signal-full"></i> <i
+                        class="ph ph-battery-full"></i></div>
+            </div>
+            <main class="content center-content">
+                <h1 class="logo">CHECK.IA</h1>
+                <p class="welcome-text">¡Bienvenido a Check.ia!</p>
+                <h2>INICIAR SESIÓN</h2>
+                <form id="login-form" class="form-layout">
+                    <div class="input-group">
+                        <label for="login-username">Usuario *</label>
+                        <input type="text" id="login-username" value="UsuarioDemo" required>
+                    </div>
+                    <div class="input-group password-group">
+                        <label for="login-password">Contraseña *</label>
+                        <input type="password" id="login-password" value="12345" required>
+                        <button type="button" class="password-toggle" aria-label="Mostrar contraseña"><i
+                                class="ph ph-eye"></i></button>
+                    </div>
+                    <button type="submit" class="btn-primary">ENTRAR</button>
+                    <button type="button" class="btn-secondary" id="guest-login-btn" style="margin-top: 10px;">Continuar
+                        como Invitado</button>
+                </form>
+                <nav class="links">
+                    <a href="#" class="nav-link" data-target="register-screen">¿No tienes una cuenta? Regístrate</a>
+                    <a href="#" class="nav-link" data-target="reset-screen">¿Olvidaste tu contraseña? Reestablecela</a>
+                </nav>
+            </main>
+        </section>
+
+        <section id="reset-screen" class="screen">
+            <div class="status-bar"><span>20:01</span>
+                <div class="status-icons" aria-hidden="true"><i class="ph ph-cell-signal-full"></i> <i
+                        class="ph ph-battery-full"></i></div>
+            </div>
+            <main class="content center-content">
+                <h1 class="logo">CHECK.IA</h1>
+                <h2>REESTABLECER CONTRASEÑA</h2>
+                <form id="reset-form" class="form-layout">
+                    <div class="input-group">
+                        <label for="reset-email">Correo electrónico *</label>
+                        <input type="email" id="reset-email" required placeholder="ejemplo@correo.com">
+                    </div>
+                    <button type="submit" class="btn-primary">ENVIAR CORREO DE RECUPERACIÓN</button>
+                </form>
+                <div class="links">
+                    <a href="#" class="nav-link go-to-login" data-target="login-screen">Volver a Iniciar Sesión</a>
+                </div>
+            </main>
+        </section>
+
+        <section id="register-screen" class="screen">
+            <div class="status-bar"><span>20:02</span>
+                <div class="status-icons" aria-hidden="true"><i class="ph ph-cell-signal-full"></i> <i
+                        class="ph ph-battery-full"></i></div>
+            </div>
+            <main class="content center-content">
+                <h1 class="logo">CHECK.IA</h1>
+                <p class="welcome-text">¡Únete a Check.ia!</p>
+                <h2>REGISTRARSE</h2>
+                <form id="register-form" class="form-layout">
+                    <div class="input-group">
+                        <label for="reg-name">Nombre y Apellidos *</label>
+                        <input type="text" id="reg-name" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="reg-email">Correo Electrónico *</label>
+                        <input type="email" id="reg-email" required>
+                    </div>
+                    <div class="input-group password-group">
+                        <label for="reg-pass">Contraseña *</label>
+                        <input type="password" id="reg-pass" required>
+                        <button type="button" class="password-toggle" aria-label="Mostrar contraseña"><i
+                                class="ph ph-eye"></i></button>
+                    </div>
+                    <div class="input-group password-group">
+                        <label for="reg-pass-conf">Confirmar Contraseña *</label>
+                        <input type="password" id="reg-pass-conf" required>
+                        <button type="button" class="password-toggle" aria-label="Mostrar contraseña"><i
+                                class="ph ph-eye"></i></button>
+                    </div>
+
+                    <div class="password-requirements">
+                        <small>La contraseña debe contener al menos:</small>
+                        <ul>
+                            <li>8 caracteres</li>
+                            <li>1 número</li>
+                            <li>1 carácter especial</li>
+                        </ul>
+                    </div>
+
+                    <button type="submit" class="btn-primary">ENTRAR</button>
+                </form>
+                <div class="links">
+                    <a href="#" class="nav-link go-to-login" data-target="login-screen">¿Ya tienes cuenta? Inicia
+                        Sesión</a>
+                </div>
+            </main>
+        </section>
+
+        <template id="header-template">
+            <header class="header-bar">
+                <h1 class="logo-small">CHECK.IA</h1>
+                <div class="header-icons">
+                    <button class="header-lang-btn" aria-label="Cambiar idioma"><i class="ph ph-translate"></i></button>
+                    <button class="header-user-btn" aria-label="Menú de usuario"><i class="ph ph-user"></i></button>
+                    <button class="header-options-btn" aria-label="Más opciones"><i
+                            class="ph ph-dots-three"></i></button>
+                </div>
+            </header>
+        </template>
+
+        <template id="navbar-template">
+            <nav class="nav-bar">
+                <button class="nav-btn" data-target="chat-screen" aria-label="Chat IA"><i
+                        class="ph ph-chat-circle-dots"></i><span class="nav-label">Chat IA</span></button>
+                <button class="nav-btn" data-target="trends-screen" aria-label="Tendencias"><i
+                        class="ph ph-trend-up"></i><span class="nav-label">Tendencias</span></button>
+                <button class="nav-btn" data-target="search-screen" aria-label="Buscar"><i
+                        class="ph ph-magnifying-glass"></i><span class="nav-label">Buscar</span></button>
+                <button class="nav-btn" data-target="communities-screen" aria-label="Comunidad"><i
+                        class="ph ph-users-three"></i><span class="nav-label">Comunidad</span></button>
+                <button class="nav-btn" data-target="history-screen" aria-label="Historial"><i
+                        class="ph ph-clock-counter-clockwise"></i><span class="nav-label">Historial</span></button>
+            </nav>
+        </template>
+
+        <section id="chat-screen" class="screen main-screen">
+            <main class="chat-content" id="chat-content-area" aria-live="polite" style="position: relative;">
+                <button class="btn-secondary nav-link" data-target="chat-history-screen"
+                    style="position: absolute; top: 10px; right: 10px; z-index: 5; padding: 5px 12px; font-size: 0.8em; border-radius: 20px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);"><i
+                        class="ph ph-clock-counter-clockwise"></i> Historial</button>
+                <div class="chat-bubble received" style="margin-top: 40px;">Hola, soy Check.ia. Pega un enlace o escribe
+                    una noticia y te daré un
+                    % de fiabilidad.</div>
+            </main>
+            <form class="chat-input-area" id="chat-form">
+                <button type="button" class="chat-attach" id="chat-attach-btn" aria-label="Adjuntar archivo"><i
+                        class="ph ph-plus"></i></button>
+                <label for="chat-input-text" class="visually-hidden">Escribe tu mensaje</label>
+                <input type="text" id="chat-input-text" placeholder="Escribe un mensaje..." autocomplete="off">
+                <button type="button" class="chat-mic" id="chat-mic-btn" aria-label="Entrada por voz"><i
+                        class="ph ph-microphone"></i></button>
+                <button type="button" class="chat-stop" id="chat-stop-btn" style="display: none;"
+                    aria-label="Detener generación"><i class="ph ph-stop"></i></button>
+                <button type="submit" class="chat-send" id="chat-send-btn" aria-label="Enviar mensaje"><i
+                        class="ph ph-paper-plane-right"></i></button>
+            </form>
+        </section>
+
+        <section id="search-screen" class="screen main-screen">
+            <main class="content">
+                <h2 class="screen-title">BUSCADOR</h2>
+                <div class="search-box">
+                    <label for="search-bar" class="visually-hidden">Término de búsqueda</label>
+                    <input type="text" id="search-bar" placeholder="Buscar...">
+                </div>
+                <div class="search-filters"
+                    style="display: flex; gap: 10px; overflow-x: auto; padding-bottom: 10px; margin-bottom: 20px;">
+                    <select class="filter-select" aria-label="Filtrar por Fecha">
+                        <option value="any">Cualquier fecha</option>
+                        <option value="24h">Últimas 24h</option>
+                        <option value="week">Última semana</option>
+                    </select>
+                    <select class="filter-select" aria-label="Filtrar por Tipo">
+                        <option value="all">Todo</option>
+                        <option value="news">Noticias</option>
+                        <option value="forum">Foros</option>
+                    </select>
+                    <select class="filter-select" aria-label="Filtrar por Fuente">
+                        <option value="all">Todas</option>
+                        <option value="verified">Verificadas</option>
+                        <option value="community">Comunidad</option>
+                    </select>
+                </div>
+                <h3 class="list-title">Resultados</h3>
+                <ul class="list-view" id="search-results-list">
+                    <li class="search-item" tabindex="0">Resultados LaLiga</li>
+                    <li class="search-item" tabindex="0">Noticias Madrid</li>
+                    <li class="search-item" tabindex="0">Remedios dolor de cabeza</li>
+                    <li class="search-item" tabindex="0">Ventajas de usar creatina</li>
+                </ul>
+            </main>
+        </section>
+
+        <section id="communities-screen" class="screen main-screen">
+            <main class="content">
+                <h2 class="screen-title">COMUNIDAD</h2>
+                <nav class="top-tab-bar">
+                    <button class="tab-btn active" data-target="communities-screen">Mensajes Privados</button>
+                    <button class="tab-btn" data-target="communities-forums-screen">Foros</button>
+                    <button class="tab-btn" data-target="communities-posts-screen">Publicaciones</button>
+                </nav>
+                <ul class="list-view list-users">
+                    <li class="nav-link" data-target="private-chat-maria" tabindex="0">
+                        <span class="avatar-icon" aria-hidden="true"><i class="ph ph-user"></i></span> Maria Martin
+                    </li>
+                    <li class="nav-link" data-target="private-chat-lucas" tabindex="0">
+                        <span class="avatar-icon" aria-hidden="true"><i class="ph ph-user"></i></span> Lucas López
+                    </li>
+                    <li class="nav-link" data-target="private-chat-fernando" tabindex="0">
+                        <span class="avatar-icon" aria-hidden="true"><i class="ph ph-user"></i></span> Fernando
+                        Fernández
+                    </li>
+                </ul>
+            </main>
+        </section>
+
+        <section id="communities-forums-screen" class="screen main-screen">
+            <main class="content">
+                <h2 class="screen-title">COMUNIDAD</h2>
+                <nav class="top-tab-bar">
+                    <button class="tab-btn" data-target="communities-screen">Mensajes Privados</button>
+                    <button class="tab-btn active" data-target="communities-forums-screen">Foros</button>
+                    <button class="tab-btn" data-target="communities-posts-screen">Publicaciones</button>
+                </nav>
+                <ul class="list-view list-forums">
+                    <li class="nav-link" data-target="forum-posts-screen" data-title="PALESTINA NEWS" tabindex="0">
+                        PALESTINA NEWS</li>
+                    <li class="nav-link" data-target="forum-posts-screen" data-title="NORMATIVAS DE TRÁFICO"
+                        tabindex="0">NORMATIVAS DE TRÁFICO</li>
+                    <li class="nav-link" data-target="forum-posts-screen" data-title="MERCADO DE FICHAJES" tabindex="0">
+                        MERCADO DE FICHAJES</li>
+                </ul>
+                <button class="btn-primary nav-link" data-target="new-post-screen" style="margin-top: 20px;">+ Publicar
+                    en un foro</button>
+            </main>
+        </section>
+
+        <section id="communities-posts-screen" class="screen main-screen">
+            <main class="content">
+                <h2 class="screen-title">COMUNIDAD</h2>
+                <nav class="top-tab-bar">
+                    <button class="tab-btn" data-target="communities-screen">Mensajes Privados</button>
+                    <button class="tab-btn" data-target="communities-forums-screen">Foros</button>
+                    <button class="tab-btn active" data-target="communities-posts-screen">Publicaciones</button>
+                </nav>
+                <div id="all-posts-container" style="padding-bottom: 20px;"></div>
+            </main>
+        </section>
+
+        <section id="private-chat-lucas" class="screen main-screen">
+            <header class="header-bar">
+                <button class="btn-back" data-target="communities-screen" aria-label="Atrás">←</button>
+                <h1 class="logo-small">Lucas López</h1>
+                <div class="header-icons"></div>
+            </header>
+            <main class="chat-content" aria-live="polite">
+                <div class="chat-bubble received">Hola Lucas!</div>
+                <div class="chat-bubble sent">Hola!</div>
+            </main>
+            <form class="chat-input-area" onsubmit="event.preventDefault(); alert('Mensaje enviado (simulado)');">
+                <button type="button" class="chat-attach" aria-label="Adjuntar archivo"><i
+                        class="ph ph-plus"></i></button>
+                <label for="private-chat-input-lucas" class="visually-hidden">Escribe tu mensaje</label>
+                <input type="text" id="private-chat-input-lucas" placeholder="Escribe un mensaje..." autocomplete="off">
+                <button type="button" class="chat-mic" aria-label="Entrada por voz"><i
+                        class="ph ph-microphone"></i></button>
+                <button type="submit" class="chat-send" aria-label="Enviar mensaje"><i
+                        class="ph ph-paper-plane-right"></i></button>
+            </form>
+        </section>
+
+        <section id="trends-screen" class="screen main-screen">
+            <main class="content">
+                <h2 class="screen-title">TENDENCIAS</h2>
+                <article class="trends-card" tabindex="0">
+                    <div class="trends-text">
+                        <p>"Descubren que dormir 8 horas puede ser..."</p>
+                        <small>Compartido 5,6k veces...</small>
+                    </div>
+                    <div class="trends-fiability" data-score="8">
+                        <span class="fiability-score">8%</span>
+                        <small class="fiability-label">Dudoso</small>
+                    </div>
+                </article>
+                <article class="trends-card" tabindex="0">
+                    <div class="trends-text">
+                        <p>"La OMS confirma que el azúcar cura la depresión"</p>
+                        <small>Compartido 2k veces...</small>
+                    </div>
+                    <div class="trends-fiability" data-score="3">
+                        <span class="fiability-score">3%</span>
+                        <small class="fiability-label">Falso</small>
+                    </div>
+                </article>
+                <article class="trends-card" tabindex="0">
+                    <div class="trends-text">
+                        <p>"Nuevas imágenes del rover en Marte"</p>
+                        <small>Compartido 1.2k veces hoy</small>
+                    </div>
+                    <div class="trends-fiability" data-score="98">
+                        <span class="fiability-score">98%</span>
+                        <small class="fiability-label">Fiable</small>
+                    </div>
+                </article>
+            </main>
+        </section>
+
+        <section id="history-screen" class="screen main-screen">
+            <main class="content">
+                <h2 class="screen-title">HISTORIAL (BÚSQUEDAS)</h2>
+                <div class="history-controls">
+                    <button class="nav-link" data-target="history-select-screen">Seleccionar</button>
+                    <button class="confirm-trigger" data-action="delete-all-history">Borrar Todo</button>
+                </div>
+                <ul class="list-view list-history" id="history-list-container">
+                    <li tabindex="0">"Elecciones 2025" <small>Hoy, 11:23</small></li>
+                    <li tabindex="0">"Huelga general" <small>Ayer, 20:55</small></li>
+                </ul>
+            </main>
+        </section>
+
+        <section id="history-select-screen" class="screen main-screen">
+            <main class="content">
+                <h2 class="screen-title">HISTORIAL (BÚSQUEDAS)</h2>
+                <div class="history-controls">
+                    <button class="nav-link" data-target="history-screen">Cancelar</button>
+                    <button class="confirm-trigger" data-action="delete-selected-history">Borrar</button>
+                </div>
+                <ul class="list-view list-history-select">
+                    <li>
+                        <label class="checkbox-container">
+                            <input type="checkbox" aria-label="Seleccionar Elecciones 2025">
+                            <span>"Elecciones 2025"</span>
+                        </label>
+                    </li>
+                    <li>
+                        <label class="checkbox-container">
+                            <input type="checkbox" aria-label="Seleccionar Huelga general">
+                            <span>"Huelga general"</span>
+                        </label>
+                    </li>
+                </ul>
+            </main>
+        </section>
+
+        <section id="settings-screen" class="screen">
+            <header class="header-bar"><button class="btn-back" data-target="trends-screen"
+                    aria-label="Atrás">←</button>
+                <h1 class="logo-small">AJUSTES</h1>
+                <div class="header-icons"></div>
+            </header>
+            <main class="content">
+                <ul class="settings-list">
+                    <li class="nav-link" data-target="general-settings-screen" tabindex="0"><i class="ph ph-gear"></i>
+                        Generales</li>
+                    <li class="nav-link" data-target="privacy-screen" tabindex="0"><i class="ph ph-lock"></i> Privacidad
+                    </li>
+                    <li class="nav-link" data-target="security-screen" tabindex="0"><i class="ph ph-shield"></i>
+                        Seguridad</li>
+                    <li class="nav-link" data-target="accessibility-screen" tabindex="0"><i
+                            class="ph ph-person-arms-spread"></i> Accesibilidad</li>
+                    <li class="nav-link" data-target="personalization-screen" tabindex="0"><i
+                            class="ph ph-paint-brush"></i> Personalización</li>
+                    <li class="nav-link" data-target="notifications-screen" tabindex="0"><i class="ph ph-bell"></i>
+                        Notificaciones</li>
+                </ul>
+            </main>
+        </section>
+
+        <section id="general-settings-screen" class="screen">
+            <header class="header-bar"><button class="btn-back" data-target="settings-screen"
+                    aria-label="Atrás">←</button>
+                <h1 class="logo-small">GENERALES</h1>
+                <div class="header-icons"></div>
+            </header>
+            <main class="content">
+                <ul class="settings-list">
+                    <li tabindex="0">🔑 Modificar contraseña</li>
+                    <li tabindex="0">✉️ Cambiar correo asociado</li>
+                    <li class="confirm-trigger" data-action="logout" tabindex="0">🚪 Cerrar sesión</li>
+                </ul>
+            </main>
+        </section>
+
+        <section id="privacy-screen" class="screen">
+            <header class="header-bar"><button class="btn-back" data-target="settings-screen"
+                    aria-label="Atrás">←</button>
+                <h1 class="logo-small">PRIVACIDAD</h1>
+                <div class="header-icons"></div>
+            </header>
+            <main class="content">
+                <div class="toggle-option">
+                    <label id="privacy-label" for="privacy-toggle">Cuenta privada</label>
+                    <button class="toggle-switch" role="switch" aria-checked="false" id="privacy-toggle"
+                        aria-labelledby="privacy-label">
+                        <span class="toggle-track">
+                            <span class="toggle-thumb"></span>
+                        </span>
+                    </button>
+                </div>
+                <p class="description-text">Si tu cuenta es pública, cualquiera podrá ver tu perfil y tus publicaciones.
+                </p>
+            </main>
+        </section>
+
+        <section id="security-screen" class="screen">
+            <header class="header-bar"><button class="btn-back" data-target="settings-screen"
+                    aria-label="Atrás">←</button>
+                <h1 class="logo-small">SEGURIDAD</h1>
+                <div class="header-icons"></div>
+            </header>
+            <main class="content">
+                <ul class="settings-list">
+                    <li>Resumen de seguridad</li>
+                    <li>Alertas recientes</li>
+                </ul>
+                <div class="toggle-option">
+                    <label id="2fa-label" for="2fa-toggle">Autenticación en 2 pasos</label>
+                    <button class="toggle-switch" role="switch" aria-checked="true" id="2fa-toggle"
+                        aria-labelledby="2fa-label">
+                        <span class="toggle-track">
+                            <span class="toggle-thumb"></span>
+                        </span>
+                    </button>
+                </div>
+            </main>
+        </section>
+
+        <section id="accessibility-screen" class="screen">
+            <header class="header-bar"><button class="btn-back" data-target="settings-screen"
+                    aria-label="Atrás">←</button>
+                <h1 class="logo-small">ACCESIBILIDAD</h1>
+                <div class="header-icons"></div>
+            </header>
+            <main class="content">
+                <div class="toggle-option">
+                    <label id="sr-label" for="screen-reader-toggle">Lector de Pantalla (Simulado)</label>
+                    <button class="toggle-switch" role="switch" aria-checked="false" id="screen-reader-toggle"
+                        aria-labelledby="sr-label">
+                        <span class="toggle-track">
+                            <span class="toggle-thumb"></span>
+                        </span>
+                    </button>
+                </div>
+                <p class="description-text">Lee en alto los elementos interactivos cuando se pulsan.</p>
+            </main>
+        </section>
+
+        <section id="personalization-screen" class="screen">
+            <header class="header-bar"><button class="btn-back" data-target="settings-screen"
+                    aria-label="Atrás">←</button>
+                <h1 class="logo-small">PERSONALIZAR</h1>
+                <div class="header-icons"></div>
+            </header>
+            <main class="content">
+                <div class="settings-option">
+                    <label for="font-size-slider">Tamaño de la letra</label>
+                    <input type="range" class="font-slider" id="font-size-slider" min="0" max="2" value="1">
+                    <div class="font-slider-labels" aria-hidden="true">
+                        <small>Pequeño</small><small>Medio</small><small>Grande</small>
+                    </div>
+                </div>
+                <div class="settings-option">
+                    <span>Idiomas preferidos</span>
+                    <small>(Español, Castellano)</small>
+                </div>
+                <div class="toggle-option">
+                    <label id="sensitive-label" for="sensitive-content-toggle">Ocultar contenido sensible</label>
+                    <button class="toggle-switch" role="switch" aria-checked="false" id="sensitive-content-toggle"
+                        aria-labelledby="sensitive-label">
+                        <span class="toggle-track">
+                            <span class="toggle-thumb"></span>
+                        </span>
+                    </button>
+                </div>
+                <p class="description-text">Esto ocultará imágenes y texto que puedan ser violentos, para adultos o
+                    emocionalmente impactantes.</p>
+            </main>
+        </section>
+
+        <section id="notifications-screen" class="screen">
+            <header class="header-bar"><button class="btn-back" data-target="settings-screen"
+                    aria-label="Atrás">←</button>
+                <h1 class="logo-small">NOTIFICACIONES</h1>
+                <div class="header-icons"></div>
+            </header>
+            <main class="content">
+                <div class="toggle-option">
+                    <label id="notif-label" for="notif-toggle">Activar notificaciones</label>
+                    <button class="toggle-switch" role="switch" aria-checked="true" id="notif-toggle"
+                        aria-labelledby="notif-label">
+                        <span class="toggle-track">
+                            <span class="toggle-thumb"></span>
+                        </span>
+                    </button>
+                </div>
+                <div class="toggle-option">
+                    <label id="vibrate-label" for="vibrate-toggle">Vibración</label>
+                    <button class="toggle-switch" role="switch" aria-checked="true" id="vibrate-toggle"
+                        aria-labelledby="vibrate-label">
+                        <span class="toggle-track">
+                            <span class="toggle-thumb"></span>
+                        </span>
+                    </button>
+                </div>
+            </main>
+        </section>
+
+        <section id="help-screen" class="screen">
+            <header class="header-bar"><button class="btn-back" data-target="trends-screen"
+                    aria-label="Atrás">←</button>
+                <h1 class="logo-small">AYUDA</h1>
+                <div class="header-icons"></div>
+            </header>
+            <main class="content">
+                <div class="search-box">
+                    <label for="help-search" class="visually-hidden">Buscar ayuda</label>
+                    <input type="text" id="help-search" placeholder="Buscar en ayuda...">
+                </div>
+                <ul class="help-list">
+                    <li tabindex="0">Configurar notificaciones</li>
+                    <li tabindex="0">Agregar o eliminar cuentas</li>
+                    <li tabindex="0">Privacidad y seguridad</li>
+                    <li tabindex="0">Conectar con redes sociales</li>
+                </ul>
+                <div style="margin-top: 30px; text-align: center;">
+                    <p style="margin-bottom: 10px; color: var(--color-text-secondary);">¿No encuentras lo que buscas?
+                    </p>
+                    <button class="btn-primary nav-link" data-target="contact-support-screen"
+                        style="width: 100%;">Contactar Soporte</button>
+                </div>
+            </main>
+        </section>
+
+        <section id="contact-support-screen" class="screen">
+            <header class="header-bar"><button class="btn-back" data-target="help-screen" aria-label="Atrás">←</button>
+                <h1 class="logo-small">CONTACTO</h1>
+                <div class="header-icons"></div>
+            </header>
+            <main class="content">
+                <form id="contact-form" class="form-layout" onsubmit="event.preventDefault();">
+                    <label for="contact-email">Tu Correo Electrónico</label>
+                    <input type="email" id="contact-email" placeholder="ejemplo@correo.com" required>
+
+                    <label for="contact-reason">Motivo</label>
+                    <input type="text" id="contact-reason" placeholder="Asunto breve..." required>
+
+                    <label for="contact-desc">Explicación</label>
+                    <textarea id="contact-desc" rows="6" placeholder="Cuéntanos en detalle..." required></textarea>
+
+                    <button type="submit" class="btn-primary">ENVIAR CONSULTA</button>
+                </form>
+            </main>
+        </section>
+
+        <section id="report-screen" class="screen">
+            <header class="header-bar"><button class="btn-back" data-target="trends-screen"
+                    aria-label="Atrás">←</button>
+                <h1 class="logo-small">! INFORMAR</h1>
+                <div class="header-icons"></div>
+            </header>
+            <main class="content">
+                <form class="form-layout" id="report-form">
+                    <label for="report-type">¿Qué tipo de problema tienes? *</label>
+                    <select id="report-type" required>
+                        <option>Usabilidad</option>
+                        <option>Problema de carga</option>
+                    </select>
+                    <label for="report-desc">Describe el problema que tienes *</label>
+                    <textarea id="report-desc" rows="5" required></textarea>
+                    <button type="submit" class="btn-primary">ENVIAR</button>
+                </form>
+            </main>
+        </section>
+
+        <section id="profile-screen" class="screen">
+            <header class="header-bar"><button class="btn-back" data-target="trends-screen"
+                    aria-label="Atrás">←</button>
+                <h1 class="logo-small">PERFIL</h1>
+                <div class="header-icons"></div>
+            </header>
+            <main class="content profile-content">
+                <div class="profile-main"><span class="avatar large" aria-hidden="true"></span>
+                    <h3 id="profile-name">Pepe Álvarez</h3>
+                </div>
+                <div class="profile-stats">
+                    <div><strong>1,205</strong> <small>Seguidores</small></div>
+                    <div><strong>300</strong> <small>Seguidos</small></div>
+                    <div><strong>85</strong> <small>Posts</small></div>
+                </div>
+                <div class="profile-actions" style="margin: 15px 0; text-align: center;">
+                    <button class="btn-secondary nav-link" data-target="edit-profile-screen"
+                        style="padding: 8px 20px; border-radius: 20px;">Editar Perfil</button>
+                </div>
+                <div class="profile-desc">
+                    <h4>Descripción</h4>
+                    <p id="profile-desc">Periodista en as.com. Combatiendo los bulo desde hace 15 años</p>
+                </div>
+                <div class="profile-social">
+                    <span class="social-icon instagram" aria-label="Instagram" role="img" tabindex="0"></span>
+                    <span class="social-icon x-twitter" aria-label="X (Twitter)" role="img" tabindex="0"></span>
+                    <span class="social-icon linkedin" aria-label="LinkedIn" role="img" tabindex="0"></span>
+                </div>
+            </main>
+        </section>
+
+        <section id="edit-profile-screen" class="screen">
+            <header class="header-bar"><button class="btn-back" data-target="profile-screen"
+                    aria-label="Atrás">←</button>
+                <h1 class="logo-small">EDITAR PERFIL</h1>
+                <div class="header-icons"></div>
+            </header>
+            <main class="content profile-content">
+                <div class="profile-main">
+                    <div style="position: relative; display: inline-block;">
+                        <span class="avatar large" id="profile-avatar-preview" aria-hidden="true"></span>
+                        <input type="file" id="avatar-upload" accept="image/*" style="display: none;">
+                        <button class="btn-edit-avatar" id="btn-edit-avatar" aria-label="Cambiar foto de perfil"
+                            style="position: absolute; bottom: 0; right: 0; background: var(--primary-color); color: white; border-radius: 50%; width: 32px; height: 32px; border: 2px solid white; cursor: pointer; display: flex; align-items: center; justify-content: center;"><i
+                                class="ph ph-camera"></i></button>
+                    </div>
+                    <div class="edit-group-input" id="edit-name-input">
+                        <label for="input-name-edit"
+                            style="display: block; margin-bottom: 5px; font-weight: bold;">Nombre</label>
+                        <input type="text" id="input-name-edit" value="Pepe Álvarez">
+                    </div>
+                </div>
+                <div class="profile-desc">
+                    <div class="edit-group-input" id="edit-desc-input">
+                        <label for="input-desc-edit"
+                            style="display: block; margin-bottom: 5px; font-weight: bold;">Descripción</label>
+                        <textarea id="input-desc-edit" rows="4">Periodista en as.com...</textarea>
+                    </div>
+                </div>
+                <div class="profile-social">
+                    <p>Añande los links a tus redes sociales:</p>
+                </div>
+                <button class="btn-primary" id="save-profile-btn" style="margin-top: 20px;">Guardar Cambios</button>
+                <button class="btn-secondary nav-link" data-target="profile-screen"
+                    style="margin-top: 10px;">Cancelar</button>
+            </main>
+        </section>
+
+        <section id="share-profile-screen" class="screen">
+            <header class="header-bar"><button class="btn-back" data-target="profile-screen"
+                    aria-label="Atrás">←</button>
+                <h1 class="logo-small">COMPARTIR PERFIL</h1>
+                <div class="header-icons"></div>
+            </header>
+            <main class="content share-content">
+                <div class="qr-code" aria-label="Código QR del perfil" role="img">[Imagen de QR Code]</div>
+                <div class="share-icon" aria-hidden="true"><i class="ph ph-share-fat"></i></div>
+            </main>
+        </section>
+
+        <section id="comments-screen" class="screen">
+            <header class="header-bar"><button class="btn-back" data-target="communities-posts-screen"
+                    aria-label="Atrás">←</button>
+                <h1 class="logo-small">COMENTARIOS</h1>
+                <div class="header-icons"></div>
+            </header>
+            <main class="content">
+                <div id="comments-original-post"></div>
+                <h3 class="list-title">Comentarios</h3>
+                <div class="comment-thread" id="comment-thread-container"></div>
+            </main>
+            <form class="comment-form" id="comment-form">
+                <label for="comment-input" class="visually-hidden">Añadir comentario</label>
+                <input type="text" id="comment-input" placeholder="Añadir un comentario...">
+                <button type="submit" class="chat-send" aria-label="Enviar comentario">➤</button>
+            </form>
+        </section>
+
+        <section id="private-chat-maria" class="screen">
+            <header class="header-bar"><button class="btn-back" data-target="communities-screen"
+                    aria-label="Atrás">←</button>
+                <h1 class="logo-small">Maria Martin</h1>
+                <div class="header-icons"></div>
+            </header>
+            <main class="chat-content" id="chat-content-maria">
+                <div class="chat-bubble received">¡Hola! ¿Viste el post sobre Palestina?</div>
+                <div class="chat-bubble sent">Hola Maria, sí, ¡justo lo acabo de ver!</div>
+            </main>
+            <form class="chat-input-area" onsubmit="event.preventDefault(); alert('Mensaje enviado (simulado)');">
+                <button type="button" class="chat-attach" aria-label="Adjuntar archivo"><i
+                        class="ph ph-plus"></i></button>
+                <label for="private-chat-input-maria" class="visually-hidden">Escribe tu mensaje</label>
+                <input type="text" id="private-chat-input-maria" placeholder="Escribe un mensaje..." autocomplete="off">
+                <button type="button" class="chat-mic" aria-label="Entrada por voz"><i
+                        class="ph ph-microphone"></i></button>
+                <button type="submit" class="chat-send" aria-label="Enviar mensaje"><i
+                        class="ph ph-paper-plane-right"></i></button>
+            </form>
+        </section>
+
+        <section id="private-chat-lucas" class="screen">
+            <header class="header-bar"><button class="btn-back" data-target="communities-screen"
+                    aria-label="Atrás">←</button>
+                <h1 class="logo-small">Lucas López</h1>
+                <div class="header-icons"></div>
+            </header>
+            <main class="chat-content" id="chat-content-lucas">
+                <div class="chat-bubble received">¿Viste el partido de ayer?</div>
+            </main>
+            <form class="chat-input-area" id="private-chat-form-lucas">
+                <button type="button" class="chat-attach" aria-label="Adjuntar archivo">+</button>
+                <label for="input-lucas" class="visually-hidden">Mensaje</label>
+                <input type="text" id="input-lucas" placeholder="Escribe un mensaje...">
+                <button type="button" class="chat-mic" aria-label="Entrada por voz">🎙️</button>
+                <button type="submit" class="chat-send" aria-label="Enviar mensaje">➤</button>
+            </form>
+        </section>
+
+        <section id="private-chat-fernando" class="screen">
+            <header class="header-bar"><button class="btn-back" data-target="communities-screen"
+                    aria-label="Atrás">←</button>
+                <h1 class="logo-small">Fernando Fernández</h1>
+                <div class="header-icons"></div>
+            </header>
+            <main class="chat-content" id="chat-content-fernando">
+                <div class="chat-bubble received">Recuerda la reunión de mañana.</div>
+            </main>
+            <form class="chat-input-area" id="private-chat-form-fernando">
+                <button type="button" class="chat-attach" aria-label="Adjuntar archivo">+</button>
+                <label for="input-fernando" class="visually-hidden">Mensaje</label>
+                <input type="text" id="input-fernando" placeholder="Escribe un mensaje...">
+                <button type="button" class="chat-mic" aria-label="Entrada por voz">🎙️</button>
+                <button type="submit" class="chat-send" aria-label="Enviar mensaje">➤</button>
+            </form>
+        </section>
+
+        <section id="forum-posts-screen" class="screen">
+            <header class="header-bar">
+                <button class="btn-back" data-target="communities-forums-screen" aria-label="Atrás">←</button>
+                <h1 class="logo-small" id="forum-title">FORO</h1>
+                <div class="header-icons"></div>
+            </header>
+            <main class="content" id="forum-posts-content"></main>
+        </section>
+
+        <section id="other-profile-screen" class="screen">
+            <header class="header-bar"><button class="btn-back" data-target="communities-posts-screen"
+                    aria-label="Atrás">←</button>
+                <h1 class="logo-small">PERFIL</h1>
+                <div class="header-icons"></div>
+            </header>
+            <main class="content profile-content">
+                <div class="profile-main"><span class="avatar large" aria-hidden="true"></span>
+                    <h3>Usuario_2375</h3>
+                </div>
+                <div class="profile-stats">
+                    <div><strong>150</strong> <small>Seguidores</small></div>
+                    <div><strong>45</strong> <small>Seguidos</small></div>
+                    <div><strong>12</strong> <small>Posts</small></div>
+                </div>
+                <div class="profile-desc">
+                    <h4>Descripción</h4>
+                    <p>Compartiendo noticias y luchando contra los bulos.</p>
+                </div>
+                <button class="btn-primary btn-follow">Seguir</button>
+            </main>
+        </section>
+
+        <section id="new-post-screen" class="screen">
+            <header class="header-bar">
+                <button class="btn-back" data-target="communities-forums-screen" aria-label="Atrás">←</button>
+                <h1 class="logo-small">NUEVA PUBLICACIÓN</h1>
+                <div class="header-icons"></div>
+            </header>
+            <main class="content">
+                <form class="form-layout" id="new-post-form">
+                    <label for="post-forum">Foro *</label>
+                    <select id="post-forum" required>
+                        <option value="">Selecciona un foro...</option>
+                        <option value="PALESTINA NEWS">PALESTINA NEWS</option>
+                        <option value="NORMATIVAS DE TRÁFICO">NORMATIVAS DE TRÁFICO</option>
+                        <option value="MERCADO DE FICHAJES">MERCADO DE FICHAJES</option>
+                    </select>
+
+                    <label for="post-title">Título *</label>
+                    <input type="text" id="post-title" required>
+
+                    <label for="post-content">Contenido *</label>
+                    <div class="textarea-container">
+                        <textarea id="post-content" rows="10" required></textarea>
+                        <button type="button" class="chat-mic" id="post-mic-btn"
+                            aria-label="Escribir por voz">🎙️</button>
+                    </div>
+
+                    <button type="submit" class="btn-primary">PUBLICAR</button>
+                </form>
+            </main>
+        </section>
+
+        <section id="chat-history-screen" class="screen">
+            <header class="header-bar">
+                <button class="btn-back" data-target="trends-screen" aria-label="Atrás">←</button>
+                <h1 class="logo-small">HISTORIAL DE CHAT</h1>
+                <div class="header-icons"></div>
+            </header>
+            <main class="content">
+                <div class="history-controls">
+                    <button id="chat-history-select-btn">Seleccionar</button>
+                    <button class="confirm-trigger" id="btn-delete-chat-sel" data-action="delete-selected-chat-history"
+                        style="display: none;">Borrar</button>
+                    <button class="confirm-trigger" id="btn-delete-chat-all"
+                        data-action="delete-all-chat-history">Borrar Todo</button>
+                </div>
+                <ul class="list-view list-history" id="chat-history-list-container">
+                    <li style="opacity: 0.7; text-align: center;">No hay historial de chat.</li>
+                </ul>
+            </main>
+        </section>
+
+        <div id="language-popup" class="popup-menu">
+            <h4>Seleccione un idioma</h4>
+            <ul>
+                <li>Español</li>
+                <li>Català</li>
+                <li>Euskara</li>
+                <li>Galego</li>
+                <li>English</li>
+                <li>Français</li>
+                <li>Deutsch</li>
+                <li>Italiano</li>
+                <li>Português</li>
+                <li>العربية</li>
+                <li>中文 (简体)</li>
+                <li>日本語</li>
+            </ul>
+        </div>
+        <div id="guest-popup" class="popup-menu">
+            <ul>
+                <li class="nav-link" data-target="login-screen" tabindex="0"><i class="ph ph-sign-in"></i> Iniciar
+                    Sesión</li>
+                <li class="nav-link" data-target="register-screen" tabindex="0"><i class="ph ph-user-plus"></i>
+                    Registrarse</li>
+            </ul>
+        </div>
+        <div id="user-popup" class="popup-menu">
+            <ul>
+                <li class="nav-link" data-target="edit-profile-screen" tabindex="0"><i class="ph ph-pencil-simple"></i>
+                    Editar perfil</li>
+                <li class="nav-link" data-target="profile-screen" tabindex="0"><i class="ph ph-user"></i> Ver perfil
+                </li>
+                <li class="nav-link" data-target="share-profile-screen" tabindex="0"><i class="ph ph-share-fat"></i>
+                    Compartir perfil</li>
+                <li class="confirm-trigger" data-action="logout" tabindex="0"><i class="ph ph-sign-out"></i>
+                    Cerrar sesión</li>
+            </ul>
+        </div>
+        <div id="options-popup" class="popup-menu">
+            <ul>
+                <li class="nav-link" data-target="settings-screen" tabindex="0"><i class="ph ph-gear"></i> Ajustes</li>
+                <li id="theme-toggle-btn" tabindex="0" role="button" aria-label="Cambiar a Tema Oscuro"><i
+                        class="ph ph-moon"></i> Tema Oscuro</li>
+                <!-- Chat History moved to main screen -->
+                <li class="nav-link" data-target="help-screen" tabindex="0"><i class="ph ph-question"></i> Ayuda</li>
+                <li class="nav-link" data-target="report-screen" tabindex="0"><i class="ph ph-warning-circle"></i>
+                    Informar</li>
+            </ul>
+        </div>
+
+        <div id="chat-attach-popup" class="popup-menu">
+            <ul>
+                <li>📷 Tomar Foto</li>
+                <li>🖼️ Galería</li>
+                <li>📄 Adjuntar Archivo</li>
+            </ul>
+        </div>
+
+        <div id="generic-confirm-popup" class="popup-dialog" role="dialog" aria-modal="true">
+            <div class="popup-dialog-content">
+                <p id="generic-confirm-message">¿Seguro?</p>
+                <div class="popup-dialog-actions">
+                    <button class="btn-secondary" id="generic-cancel-btn">No</button>
+                    <button class="btn-primary" id="generic-confirm-btn">Si</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="generic-success-popup" class="popup-dialog" role="dialog" aria-modal="true">
+            <div class="popup-dialog-content">
+                <div style="text-align: center; margin-bottom: 10px; font-size: 2em; color: var(--color-success);">
+                    <i class="ph ph-check-circle"></i>
+                </div>
+                <p id="generic-success-message" style="text-align: center;">Acción completada con éxito</p>
+                <div class="popup-dialog-actions" style="justify-content: center;">
+                    <button class="btn-primary" id="generic-success-btn">Aceptar</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

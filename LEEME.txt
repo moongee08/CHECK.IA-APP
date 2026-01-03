@@ -1,0 +1,47 @@
+# Check.ia - Prototipo Móvil (Web App)
+
+Este proyecto es un prototipo de alta fidelidad **mobile-first** para la aplicación "Check.ia", diseñada para combatir la desinformación.
+
+## Características Principales
+
+- **Diseño Mobile-First**: Interfaz optimizada para pantallas táctiles con áreas de interacción adecuadas.
+- **Comunidad Activa**:
+    - **Foros y Publicaciones**: Renderizado dinámico de posts y navegación fluida.
+    - **Comentarios**: Nueva barra de comentarios fijada y estilizada.
+    - **Menús Integrados**: Navegación contextual tipo acordeón.
+- **Funcionalidad "Dummy"**: Simulaciones realistas de Chatbot, Likes, Historial y Perfil.
+
+---
+
+La estructura del proyecto es:
+
+- `index.html`: Punto de entrada de la aplicación.
+- `script.js`: Lógica principal (Navegación SPA, renderizado dinámico).
+- `css/`: Hoja de estilos principal (`main.css`) y configuración (`variables.css`, `reset.css`).
+- `docs/`: Documentación técnica extendida (Roadmap, Arquitectura).
+
+---
+
+## Cómo Ejecutar el Proyecto
+
+Este prototipo utiliza tecnologías web estándar (HTML, CSS, JS) y no requiere instalación.
+
+### Opción A: Desde Escritorio (Rápido)
+
+1.  Haz doble clic en el archivo `index.html`.
+2.  Se abrirá en tu navegador.
+    > **Nota:** La aplicación se mostrará dentro de un contenedor que simula un teléfono móvil automáticamente.
+
+### Opción B: En un Móvil Real (Sin Cables)
+
+Si quieres probar la experiencia táctil real en tu iPhone/Android:
+
+https://checkiaa.netlify.app
+
+---
+
+## Notas Técnicas
+
+- No requiere servidor backend (todo es JavaScript).
+- Optimizado para visualización en Chrome/Safari/Edge.
+- Diseño totalmente responsivo dentro del marco simulado.

@@ -1,0 +1,118 @@
+/* --- VARIABLES GLOBALES (Design System) --- */
+:root {
+    /* --- PALETA DE COLORES --- */
+    /* Tema Claro (Default) */
+    --color-bg-body: #f3f4f6;
+    --color-bg-surface: #ffffff;
+    --color-text-main: #111827;
+    --color-text-secondary: #374151;
+    /* Was #4b5563 - Darkened for a11y contrast */
+
+    --color-primary: #4f46e5;
+    /* Indigo 600 */
+    --color-primary-dark: #4338ca;
+    /* Indigo 700 */
+    --color-primary-light: #818cf8;
+    /* Indigo 400 */
+    --color-text-on-primary: #ffffff;
+
+    --color-input-bg: #ffffff;
+    --color-input-text: #1f2937;
+    --color-input-border: #9ca3af;
+
+    --color-border-light: #e5e7eb;
+    --color-border-medium: #d1d5db;
+
+    /* Status Bar */
+    --color-status-bar: #1f2937;
+
+    /* Chat Bubbles */
+    --color-bubble-sent-bg: var(--color-primary);
+    --color-bubble-sent-text: #ffffff;
+    --color-bubble-received-bg: #e5e7eb;
+    --color-bubble-received-text: #111827;
+
+    /* Fiabilidad / Semánticos */
+    --color-success: #16a34a;
+    /* Green 600 */
+    --color-warning: #d97706;
+    /* Amber 600 */
+    --color-danger: #dc2626;
+    /* Red 600 */
+
+    /* --- ESPACIADO Y TAMAÑOS --- */
+    --space-xs: 4px;
+    --space-sm: 8px;
+    --space-md: 16px;
+    --space-lg: 24px;
+    --space-xl: 32px;
+
+    --border-radius-sm: 8px;
+    --border-radius-md: 12px;
+    --border-radius-lg: 30px;
+    /* Pantallas */
+    --border-radius-xl: 40px;
+    /* Contenedor Móvil */
+
+    --touch-target-min: 44px;
+    /* Mínimo accesible */
+
+    /* --- TIPOGRAFÍA --- */
+    --font-family-base: 'Inter', sans-serif;
+    --font-size-sm: 13px;
+    --font-size-base: 15px;
+    --font-size-lg: 17px;
+    --font-weight-regular: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+    --font-weight-extrabold: 800;
+}
+
+[data-theme="dark"] {
+    /* TEMA OSCURO */
+    --color-bg-body: #111827;
+    /* Gray 900 */
+    --color-bg-surface: #1f2937;
+    /* Gray 800 */
+    --color-text-main: #f3f4f6;
+    --color-text-secondary: #d1d5db;
+
+    --color-primary: #818cf8;
+    /* Indigo 400 (Más claro para fondo oscuro) */
+    --color-text-on-primary: #111827;
+    /* Invertido para contraste si se usa como fondo */
+
+    --color-input-bg: #374151;
+    --color-input-text: #f9fafb;
+    --color-input-border: #6b7280;
+
+    --color-border-light: #374151;
+    --color-border-medium: #4b5563;
+
+    --color-status-bar: #f3f4f6;
+
+    --color-bubble-sent-bg: #4f46e5;
+    /* Mantener Brand color a veces funciona, revisar contraste */
+    --color-bubble-sent-text: #ffffff;
+    --color-bubble-received-bg: #374151;
+    --color-bubble-received-text: #f3f4f6;
+
+    /* Fiabilidad (Ajustados para contraste oscuro) */
+    --color-success: #22c55e;
+    --color-warning: #f59e0b;
+    --color-danger: #ef4444;
+}
+
+/* Modificadores de Tamaño de Fuente (Data Attributes) */
+[data-font-size="small"] {
+    --font-size-base: 13px;
+}
+
+[data-font-size="medium"] {
+    --font-size-base: 15px;
+}
+
+[data-font-size="large"] {
+    --font-size-base: 17px;
+}
